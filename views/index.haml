@@ -1,0 +1,41 @@
+!!! 5
+%html
+  %head
+    %title Information about HTTP Status Code 451
+  %body
+    %h1 &quot;451 Unavailable For Legal Reasons&quot;
+    %p
+      The HTTP 451 status code is a new status code for HTTP responses.
+
+      %blockquote
+        Use when a server operator has received a legal demand to
+        deny access to a resource or to a set of resources which includes the
+        requested resource.
+
+        This status code can be used to provide transparency in circumstances
+        where issues of law or public policy affect server operations.  This
+        transparency may be beneficial both to these operators and to end
+        users.
+    %p
+      As of December 21, 2015, this status code is still working its way through
+      final approvals by the IETF. You can see its status
+      <a href="https://datatracker.ietf.org/doc/draft-ietf-httpbis-legally-restricted-status/?include_text=1">here</a>.
+    %p
+      Wikipedia also covers <a href="https://en.wikipedia.org/wiki/HTTP_451">HTTP 451</a>.
+
+    %h2 How to use 451
+    %p 
+      When a URL cannot be served due to legal reasons, respond with status code
+      <code>451</code> and description <em>Unavailable For Legal Reasons</em>.
+      Supplying a reason in the response body is optional, but recommended.
+      Additionally, it is recommended to supply a <code>Link</code> header field
+      with a URL referring to the entity implementing the blockage, such as a 
+      government agency's web site or a link to legislation, and to set the
+      <code>rel</code> parameter to <code>blocked-by</code> on this header.
+      This provides a machine-readable way for the browser to indicate further
+      reading as to why the URL cannot be served due to legal reasons.
+    %h2 Testing it
+    %p 
+      Access <a href="/censored">/censored</a> on this site to test the
+      behavior of your user agent (browser) when it encounters an HTTP 451
+      response. 
